@@ -7,7 +7,7 @@ import yaml
 
 
 class SafeLoaderWithDocBody(yaml.SafeLoader):
-    def compose_document(self) -> yaml.Node | None:
+    def compose_document(self) -> typing.Union[yaml.Node, None]:
         start = self.get_mark()
         doc = super().compose_document()
         end = self.get_mark()
