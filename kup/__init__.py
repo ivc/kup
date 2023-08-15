@@ -24,7 +24,7 @@ def camel_to_kebab(text: str) -> str:
     return re.sub(r"(?<=[a-z0-9])([A-Z])", r"-\1", text).lower()
 
 
-def file_path(base_path: str, resource: typing.Dict[str, str]) -> pathlib.Path:
+def file_path(base_path: str, resource: typing.Dict[str, typing.Any]) -> pathlib.Path:
     kind = resource["kind"]
     name = resource["metadata"]["name"]
     return pathlib.PosixPath(base_path, camel_to_kebab(kind), name + ".yaml")
